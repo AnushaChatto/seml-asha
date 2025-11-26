@@ -1,3 +1,29 @@
+# This is the Repository to store the extension of SEML to implement The Asynchronous Successive Halving Algorithm 
+As stated in paper **SLURM-managed HyperParameter Optimization**
+
+Example for implementation is located in `examples\asha_example`
+
+To get a feeling for how the algorithm works one can run the included experiment in examples/asha_example.
+
+   - main.py is the main experiment file
+   - experiment_1.yaml is the configurations
+   - model.py is a sample model that matches main.py
+   - The configuration of ASHA is done in the .yaml file as follows, in addition to the Random Search parameters:
+
+```
+fixed:
+  asha_collection_name: asha_import_test
+  num_stages: 10
+  asha:
+    eta: 3 //elimination fraction
+    min_r: 1 //first elimination rung
+    max_r: 20 //last elimination rung
+    metric_increases: True //is the evaluated metric is better when increasing or decreasing (e.g if accuracy: metric_increases:True, if loss: metric_increases: False
+```
+
+
+
+
 ![Github Actions](https://github.com/TUM-DAML/seml/workflows/Test/badge.svg)
 
 # `SEML`: Slurm Experiment Management Library
